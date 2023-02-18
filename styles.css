@@ -1,12 +1,24 @@
+body {
+    background-color: lightgrey;
+}
+
+/* container for entire calculator and everything it contains*/
+
 .container {
+    margin-top: 100px;
+    border-radius: 10px;
     height: 400px;
     width: 250px;
     border: 1px solid black;
     margin-right: auto;
     margin-left: auto;
+    background-color: #363636;
 }
 
+/*grid that contains the buttons*/
+
 .grid {
+    margin-top: 30px;
     width: 250px;
     display: inline-grid;
     align-content: stretch;
@@ -14,7 +26,50 @@
     align-items: end
 }
 
+/* text area for calculation results*/
+
+textarea {
+    text-align: right;
+    border-radius: 10px;
+    color: white;
+    background-color: #303030;
+    display: flex;
+    margin-top: 10px;
+    margin-left: 7px;
+    width: 230px;
+    height: 76px;
+}
+
+/*all buttons*/
+
 button {
+    background-color: #999b99;
     height: 50px;
     width: 50px;
+    padding: 1px;
+    border-radius: 30px;
+}
+
+.line1 {
+    padding: 1px;
+}
+
+.line2 {
+    padding: 1px;
+}
+
+.line3 {
+    padding: 1px;
+}
+
+.line4 {
+    padding: 1px;
+}
+
+.line5 {
+    padding: 1px;
+}
+
+.line5 button {
+    width: 104px;
 }
