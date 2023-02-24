@@ -50,6 +50,8 @@ button {
     border-radius: 30px;
 }
 
+/*padding so the buttons separate*/
+
 .line1 {
     padding: 1px;
 }
