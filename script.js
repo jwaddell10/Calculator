@@ -12,7 +12,7 @@ const display = document.querySelector('textarea');
 const operators = document.querySelectorAll('#operator');
 const numbersBtn = document.querySelectorAll('#numbers');
 let input = document.querySelectorAll('button').value;
-const stack = [];
+const myArray = [];
 
 let currentOperation = null;
 //const operator = document.querySelectorAll('#operator');
@@ -38,10 +38,11 @@ class Calculator {
     }
 
     appendNumber(number) {
-        stack.push(this.currentOperand);
-        this.currentOperand = parseInt(number);
-        console.log(stack);
-
+        this.currentOperand = parseInt(number.replaceAll(/,/g, ','));
+        myArray.push(this.currentOperand);
+        console.log(myArray)
+        myArray.join("");
+        console.log(myArray);
     }
 
     chooseOperation(operation) {
@@ -53,7 +54,7 @@ class Calculator {
     }
 
     updateDisplay() {
-        this.currentOperandTextElement.innerText = stack
+        this.currentOperandTextElement.innerText = myArray.join('')
     }
 }
 
