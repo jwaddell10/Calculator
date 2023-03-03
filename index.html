@@ -12,37 +12,42 @@
 <body>
     <div class="container">
         <div class="display">
-            <textarea>0</textarea>
+            <div>
+                <output class="previous-operand" type="text" id="user-input">0</output>
+            </div>
+            <div>
+                <output class="current-operand" type="text" id="result">&nbsp;</output>
+            </div>
         </div>
-        <div class="grid">
+        <div class=" grid">
             <div class="line1">
-                <button>AC</button>
-                <button>+/-</button>
-                <button>%</button>
-                <button>/</button>
+                <button id="clear">AC</button>
+                <button id="delete">Del</button>
+                <button id="percentage">%</button>
+                <button id="operator">/</button>
             </div>
             </break>
             <div class="line2">
-                <button>7</button>
-                <button>8</button>
-                <button>9</button>
-                <button>*</button>
+                <button id="numbers">7</button>
+                <button id="numbers">8</button>
+                <button id="numbers">9</button>
+                <button id="operator">*</button>
             </div>
             <div class="line3">
-                <button>4</button>
-                <button>5</button>
-                <button>6</button>
-                <button>-</button>
+                <button id="numbers">4</button>
+                <button id="numbers">5</button>
+                <button id="numbers">6</button>
+                <button id="operator">-</button>
             </div>
             <div class="line4">
-                <button>1</button>
-                <button>2</button>
-                <button>3</button>
-                <button>+</button>
+                <button id="numbers">1</button>
+                <button id="numbers">2</button>
+                <button id="numbers">3</button>
+                <button id="operator">+</button>
             </div>
             <div class="line5">
-                <button>0</button>
-                <button>=</button>
+                <button id="numbers">0</button>
+                <button id="equal">=</button>
             </div>
         </div>
     </div>
