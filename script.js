@@ -28,7 +28,7 @@ class Calculator {
         allClearBtn.addEventListener('click', () => {
             this.currentOperandTextElement.innerText = ''
             this.previousOperandTextElement.innerText = ''
-            this.operation = undefined
+            this.operators = undefined
         });
     }
 
@@ -44,11 +44,14 @@ class Calculator {
         console.log(myArray);
     }
 
-    chooseOperation(operation) {
-        this.operation = operation
-        this.previousOperand = this.currentOperand
+    chooseOperation(operators) {
+        //if (this.currentOperation === '') return
+        //if (this.previousOperand !== '') {
+        // this.compute();
+        // }
+        this.operators = operators
         this.currentOperand = ""
-        console.log(operation);
+        //console.log(operators);
     }
 
     compute() {
@@ -61,8 +64,9 @@ class Calculator {
     }
 
     clearDisplay() {
+        if (this.currentOperandTextElement.innerText === '') return;
+        this.previousOperandTextElement.innerText = `${this.currentOperandTextElement.innerText}` + `${this.operators}`
         this.currentOperandTextElement.innerText = ''
-        this.previousOperandTextElement.innerText = ''
     }
 }
 
