@@ -39,6 +39,7 @@ output {
     text-align: right;
     color: white;
     width: 220px;
+    height: 25px
 }
 
 .current-operand {
@@ -47,6 +48,7 @@ output {
     font-weight: 600;
     text-align: right;
     color: white;
+    height: 30px
 }
 
 .display {

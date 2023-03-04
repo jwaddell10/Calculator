@@ -7,7 +7,6 @@ const currentOperandTextElement = document.querySelector('.current-operand');
 const equalsBtn = document.querySelector('#equal');
 const deleteBtn = document.querySelector('#delete');
 const allClearBtn = document.querySelector('#clear');
-console.log(allClearBtn);
 const display = document.querySelector('textarea');
 const operators = document.querySelectorAll('#operator');
 const numbersBtn = document.querySelectorAll('#numbers');
@@ -27,10 +26,10 @@ class Calculator {
 
     clear() {
         allClearBtn.addEventListener('click', () => {
-            this.currentOperandTextElement = '';
-            this.previousOperandTextElement = '';
-            this.operation = undefined;
-        })
+            this.currentOperandTextElement.innerText = ''
+            this.previousOperandTextElement.innerText = ''
+            this.operation = undefined
+        });
     }
 
     delete() {
@@ -46,7 +45,10 @@ class Calculator {
     }
 
     chooseOperation(operation) {
-
+        this.operation = operation
+        this.previousOperand = this.currentOperand
+        this.currentOperand = ""
+        console.log(operation);
     }
 
     compute() {
@@ -55,6 +57,12 @@ class Calculator {
 
     updateDisplay() {
         this.currentOperandTextElement.innerText = myArray.join('')
+        //this.previousOperandTextElement.innerText = this.previousOperand
+    }
+
+    clearDisplay() {
+        this.currentOperandTextElement.innerText = ''
+        this.previousOperandTextElement.innerText = ''
     }
 }
 
@@ -69,8 +77,8 @@ numbersBtn.forEach(button => {
 
 operators.forEach(button => {
     button.addEventListener('click', () => {
-        calculator.appendNumber(button.innerText);
-        calculator.updateDisplay();
+        calculator.chooseOperation(button.innerText);
+        calculator.clearDisplay();
     })
 })
 
