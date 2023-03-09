@@ -11,7 +11,7 @@ const display = document.querySelector('textarea');
 const operators = document.querySelectorAll('#operator');
 const numbersBtn = document.querySelectorAll('#numbers');
 let input = document.querySelectorAll('button').value;
-const myArray = [];
+let myArray = [];
 
 let currentOperation = null;
 //const operator = document.querySelectorAll('#operator');
@@ -20,7 +20,7 @@ class Calculator {
     constructor(previousOperandTextElement, currentOperandTextElement) {
         this.previousOperandTextElement = previousOperandTextElement
         this.currentOperandTextElement = currentOperandTextElement
-        this.clear()
+        //this.clear()
     }
 
 
@@ -37,11 +37,12 @@ class Calculator {
     }
 
     appendNumber(number) {
+        myArray.length = 0
         this.currentOperand = parseInt(number.replaceAll(/,/g, ','));
         myArray.push(this.currentOperand);
-        console.log(myArray)
+        //console.log(myArray)
         myArray.join("");
-        console.log(myArray);
+        //console.log(myArray);
     }
 
     chooseOperation(operators) {
@@ -56,16 +57,40 @@ class Calculator {
 
     compute() {
 
+        const number1 = parseFloat(this.previousOperandTextElement.innerText)
+        const number2 = parseFloat(this.currentOperandTextElement.innerText);
+
+        console.log(number1);
+        console.log(number2);
+        console.log(this.operators);
+
+        if (this.operators == '+') {
+            this.currentOperandTextElement.innerText = number1 + number2
+            this.previousOperandTextElement.innerText = ''
+            console.log(this.currentOperandTextElement.innerText)
+        } else if (this.operators == '-') {
+            this.currentOperandTextElement.innerText = number1 - number2
+            this.previousOperandTextElement.innerText = ''
+        } else if (this.operators == '*') {
+            this.currentOperandTextElement.innerText = number1 * number2
+            this.previousOperandTextElement.innerText = ''
+        } else if (this.operators == '/') {
+            this.currentOperandTextElement.innerText = number1 / number2
+            this.previousOperandTextElement.innerText = ''
+        } else {
+            console.log("something went wrong");
+        }
     }
 
     updateDisplay() {
         this.currentOperandTextElement.innerText = myArray.join('')
+        console.log(myArray);
         //this.previousOperandTextElement.innerText = this.previousOperand
     }
 
     clearDisplay() {
         if (this.currentOperandTextElement.innerText === '') return;
-        this.previousOperandTextElement.innerText = `${this.currentOperandTextElement.innerText}` + `${this.operators}`
+        this.previousOperandTextElement.innerText = `${this.currentOperandTextElement.innerText}` + ` ${this.operators}`
         this.currentOperandTextElement.innerText = ''
     }
 }
@@ -84,6 +109,14 @@ operators.forEach(button => {
         calculator.chooseOperation(button.innerText);
         calculator.clearDisplay();
     })
+})
+
+equalsBtn.addEventListener('click', () => {
+    calculator.compute();
+})
+
+allClearBtn.addEventListener('click', () => {
+    window.location.reload();
 })
 
 /*function add(a, b) {
